@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { login } from './actions/LoginAction'
 import { Redirect } from 'react-router-dom'
 import { connect } from "react-redux";
+
 function Login(props) {
 
     const [user, setUser] = useState({
@@ -35,8 +36,6 @@ function Login(props) {
                         onChange={setValues}></input>
                 </div>
                 <button type="submit" className='btn btn-primary'>Login</button>
-                
-
             </form>
         </div>
     </div>

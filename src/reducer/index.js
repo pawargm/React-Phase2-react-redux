@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
-import courseReducer from './courseReducer'
+import assetReducer from './assetReducer'
 import LoginReducer from './LoginReducer'
 
 export default combineReducers({
 
-    course: courseReducer,
+    asset: assetReducer,
     login: LoginReducer
 })
