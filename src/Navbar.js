@@ -5,7 +5,7 @@ class Navbar extends Component {
         return (
 
             <nav className="navbar navbar-expand-md navbar-dark bg-primary">
-                <span className="navbar-brand">Manipal Educations</span>
+                <span className="navbar-brand">Asset Manager</span>
                 <div className="collapse navbar-collapse">
 
                     <ul className="navbar-nav ml-auto">
@@ -13,10 +13,10 @@ class Navbar extends Component {
                             <Link className="nav-link" to="/">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/students">Students</Link>
+                            <Link className="nav-link" to="/getBuyAsset">AssetThatLike</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/getBuyAsset">AssetThatLike</Link>
+                            <Link className="nav-link" to="/createAsset">PublishAssetForSell</Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/login">Login</Link>

@@ -42,9 +42,11 @@ class AssetsBuyLst extends Component {
             loading = false;
         }
         console.log("AssetsBuyLst:Start")
-        console.log(this.props.assetLstBuy)
+        console.log(this.props.isAuthenticated)
+        console.log(loading)
+        //console.log(this.props.assetLstBuy)
         //console.log(this.props.courseDetails.courseId)
-        return  !this.props.isAuthenticated ? <Redirect to='/login'></Redirect> : loading ? <h1> loading</h1> :
+        return  !this.props.isAuthenticated ? <Redirect to='/login'></Redirect> : loading ? <Redirect to='/getBuyAsset'></Redirect> :
         <div>
            
             <div className="jumbotron">

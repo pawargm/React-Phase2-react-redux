@@ -1,9 +1,10 @@
 import axios from 'axios'
+import { Redirect } from 'react-router'
 
 
 export const getAssets = () =>
+    
     async (dispatch) => {
-
         try {
             console.log("Actions")
             await axios.get('http://localhost:5001/asset/getAssets')
@@ -63,7 +64,9 @@ export const getAssetBuyLst = (assetdata) => async (dispatch) => {
     console.log(assetdata)
     var usrObj = {"username":assetdata}
 
-    { try {
+    { 
+        
+        try {
                
         axios.post('http://localhost:5001/user/getBuyLst', usrObj).then(res => {
             console.log("GET_ASSET_TO_BUYLST: Successfully added")
@@ -90,6 +93,17 @@ export const getAssetBuyLst = (assetdata) => async (dispatch) => {
         {
 
             type: "REMOVE_ASSET_TO_BUYLST",
+            pload: assetdata
+        }
+    )
+}
+
+export const createAsset = (assetdata) => async (dispatch) => {
+
+    dispatch(
+        {
+            type: "CREATE_ASSET", ///Action called all reducer and matched 
+            //reducer by type like in above LOGIN_SUCCESS
             pload: assetdata
         }
     )

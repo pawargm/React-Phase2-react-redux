@@ -176,6 +176,28 @@ const assetReducer = (state = initialState, action) => {
                 assetLstBuy: alistp,
             }
 
+    case 'CREATE_ASSET':
+        console.log("CREATE_ASSET: start")
+        console.log(action.pload)      
+        try {
+           console.log("action.pload")
+           console.log(action.pload)
+            axios.post('http://localhost:5001/asset/createAsset', action.pload).then(res => {
+                console.log("CREATE_ASSET: Successfully added")
+            })
+        } catch (error) {  
+            console.log("CREATE_ASSET: Error not able to add asset with error"+ error)
+            return {
+                ...state,
+                assetList: initialState.assetList
+            }
+        }          
+        //console.log(alistp)
+        return {
+            ...state,
+            assetList: [...state.assetList, action.pload]
+        }
+
         default:
             return state;
     }

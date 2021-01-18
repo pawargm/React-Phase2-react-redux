@@ -7,9 +7,11 @@ import Students from './Students';
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from './Store'
+import CreateAsset from './CreateAsset'
 import Login from './Login'
 import Logout from './Logout'
 import AssetsBuyLst from './AssetsBuyLst'
+import CreateCourses from './CreateCourse';
 
 class App extends Component {
 
@@ -28,9 +30,11 @@ class App extends Component {
               {/* <Fees fess="5500"></Fees> */}
             </React.Fragment>
           )}></Route>
+          <Route exact path='/getBuyAsset' component={AssetsBuyLst}></Route>
+          <Route exact path='/createAsset' component={CreateAsset}></Route>
           <Route exact path='/login' component={Login}></Route>
           <Route exact path='/logout' component={Logout}></Route>
-          <Route exact path='/getBuyAsset' component={AssetsBuyLst}></Route>
+          
 
         </div>
 

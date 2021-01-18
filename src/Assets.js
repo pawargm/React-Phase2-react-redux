@@ -53,9 +53,8 @@ class Assets extends Component {
         if (this.props.assetList !== null) {
             loading = false;
         }
-        return !this.props.isAuthenticated ? <Redirect to='/login'></Redirect> : loading ? <h1> loading</h1> :
+        return !this.props.isAuthenticated ? <Redirect to='/login'></Redirect> : loading ? <Redirect to='/getBuyAsset'></Redirect> :
             <div>
-                <CreateCourses addCourse={this.addCourse} />
                 <div className="jumbotron">
                     {this.props.assetList.map(asset => (
                         <Asset key={asset.assetid} assetDetails={asset} addtobuylstAsset={this.addtobuylstAsset} />
