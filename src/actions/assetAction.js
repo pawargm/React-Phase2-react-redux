@@ -59,6 +59,7 @@ export const addtobuylstAsset = (assetdata) => async (dispatch) => {
         )
 }
 
+
 export const getAssetBuyLst = (assetdata) => async (dispatch) => {
     console.log("getAssetBuyLst:Start")
     console.log(assetdata)
@@ -85,6 +86,32 @@ export const getAssetBuyLst = (assetdata) => async (dispatch) => {
   
  }
 
+ export const getAssetSellLst = (assetdata) => async (dispatch) => {
+    console.log("getAssetSellLst:Start")
+    console.log(assetdata)
+    var usrObj = {"username":assetdata}
+
+    { 
+        
+        try {
+               
+        axios.post('http://localhost:5001/user/getSellLst', usrObj).then(res => {
+            console.log("GET_ASSET_TO_SELLLST: Successfully added")
+            console.log(res.data)
+            dispatch(
+                {
+                    type: "GET_ASSET_TO_SELLLST",
+                    pload: res.data
+                }
+            )
+        })
+    } catch (error) {  
+        console.log(error)
+    }
+    }
+  
+ }
+
  export const  removetobuylstAsset = (assetdata) => async (dispatch) => {
     
     console.log("removetobuylstAsset: Start")
@@ -93,6 +120,19 @@ export const getAssetBuyLst = (assetdata) => async (dispatch) => {
         {
 
             type: "REMOVE_ASSET_TO_BUYLST",
+            pload: assetdata
+        }
+    )
+}
+
+export const  removetoselllstAsset = (assetdata) => async (dispatch) => {
+    
+    console.log("removetoselllstAsset: Start")
+    console.log(assetdata)
+    dispatch(
+        {
+
+            type: "REMOVE_ASSET_TO_SELLLST",
             pload: assetdata
         }
     )

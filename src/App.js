@@ -11,7 +11,9 @@ import CreateAsset from './CreateAsset'
 import Login from './Login'
 import Logout from './Logout'
 import AssetsBuyLst from './AssetsBuyLst'
-import CreateCourses from './CreateCourse';
+import AssetsSellLst from './AssetsSellLst'
+import testCom from './testCom';
+
 
 class App extends Component {
 
@@ -31,9 +33,12 @@ class App extends Component {
             </React.Fragment>
           )}></Route>
           <Route exact path='/getBuyAsset' component={AssetsBuyLst}></Route>
+          <Route exact path='/getSellAsset' component={AssetsSellLst}></Route>
           <Route exact path='/createAsset' component={CreateAsset}></Route>
           <Route exact path='/login' component={Login}></Route>
           <Route exact path='/logout' component={Logout}></Route>
+          <Route exact path='/tstCom' component={testCom}></Route>
+
           
 
         </div>

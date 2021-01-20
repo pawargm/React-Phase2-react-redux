@@ -16,6 +16,12 @@ class Navbar extends Component {
                             <Link className="nav-link" to="/getBuyAsset">AssetThatLike</Link>
                         </li>
                         <li className="nav-item">
+                            <Link className="nav-link" to="/getSellAsset">AssetThatSell</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/tstCom">Test</Link>
+                        </li>
+                        <li className="nav-item">
                             <Link className="nav-link" to="/createAsset">PublishAssetForSell</Link>
                         </li>
                         <li className="nav-item">

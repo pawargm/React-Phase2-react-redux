@@ -4,7 +4,8 @@ import axios from 'axios'
 const initialState = {
     assetList: null ,
     name:null,
-    assetLstBuy:null
+    assetLstBuy:null,
+    assetLstSell:null
 }
 
 
@@ -143,7 +144,14 @@ const assetReducer = (state = initialState, action) => {
                 assetLstBuy: action.pload,
                 name: "Gopal Pawar"
             }
-
+        case 'GET_ASSET_TO_SELLLST':
+            console.log("GET_ASSET_TO_SELLLST: start")
+            console.log(action.pload)
+            return {
+                ...state,
+                assetLstSell: action.pload,
+                name: "Gopal PAwar"
+            }
         case 'REMOVE_ASSET_TO_BUYLST':
             console.log("REMOVE_ASSET_TO_BUYLST: start")
             console.log(action.pload)
@@ -176,6 +184,38 @@ const assetReducer = (state = initialState, action) => {
                 assetLstBuy: alistp,
             }
 
+    case 'REMOVE_ASSET_TO_SELLLST':
+                console.log("REMOVE_ASSET_TO_SELLLST: start")
+                console.log(action.pload)
+                let alistS = state.assetLstSell.filter((asset) => { 
+                    if(asset !== null )  {  
+                        console.log("Asset are removing")
+                        console.log(asset)
+                        return asset._id != action.pload.assetid
+                    }
+                    else {
+                        console.log("Asset is null")
+                    } 
+                })         
+                try {
+                   console.log("action.pload")
+                   console.log(action.pload)
+                    axios.post('http://localhost:5001/user/removeSellAssetlst', action.pload).then(res => {
+                        console.log("REMOVE_ASSET_TO_BUYLST: Successfully removed")
+                    })
+                } catch (error) {  
+                    console.log("REMOVE_ASSET_TO_BUYLST: Error not able to remove asset with error"+ error)
+                    return {
+                        ...state,
+                        assetLstSell: initialState.assetLstSell
+                    }
+                }          
+                console.log(alistS)
+                return {
+                    ...state,
+                    assetLstSell: alistS,
+                }
+    
     case 'CREATE_ASSET':
         console.log("CREATE_ASSET: start")
         console.log(action.pload)      

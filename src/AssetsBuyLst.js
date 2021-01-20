@@ -19,7 +19,8 @@ class AssetsBuyLst extends Component {
     console.log(this.props.username)
     
     
-    this.props.getAssetBuyLst(this.props.username);
+    !this.props.isAuthenticated ? <Redirect to='/login'></Redirect>:
+      this.props.getAssetBuyLst(this.props.username);
 
   }
 
